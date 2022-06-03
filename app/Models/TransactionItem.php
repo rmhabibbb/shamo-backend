@@ -2,21 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TransactionItem extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'transactions_id',
-        'users_id',
-        'products_id',
-        'quantity'
+        'users_id', 'products_id', 'transactions_id', 'quantity'
     ];
 
     public function product()
     {
-        return $this->hasOne(Product::class, 'products_id', 'id');
+        return $this->hasOne(Product::class, 'id', 'products_id');
     }
 }
